@@ -7,6 +7,6 @@ public class MapData : ScriptableObject
 {
     public int width;
     public int height;
-    public int seed;
+    public string seed;
     public bool[,] map;
 }

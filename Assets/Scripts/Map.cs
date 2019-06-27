@@ -6,7 +6,7 @@ public class Map
 {
     MapData theData;
 
-    public void SetMapData(int width, int height, int seed, bool[,] map)
+    public void SetMapData(int width, int height, string seed, bool[,] map)
     {
         theData.width = width;
         theData.height = height;

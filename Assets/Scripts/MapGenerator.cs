@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ public class MapGenerator : MonoBehaviour
     [Header("Map Data")]
     public int width;
     public int height;
-    public int seed;
+    public string seed;
     public MapData mapData;
 
     //initialization of the map
@@ -29,12 +30,21 @@ public class MapGenerator : MonoBehaviour
 
     //optional stuff
     [Header("Map Generator Options")]
+    public bool generateRandomSeed;
     public bool autoUpdate;        
 
     public void GenerateMap()
     {
         InitializeMap();
         CellularAutomata.GenerateMapData(mapData, simulationSteps, creationLimit, destructionLimit);
+    }
+
+    public void GenerateRandomSeed()
+    {
+        if (generateRandomSeed)
+        {
+            seed = DateTime.Now.Ticks.ToString();
+        }
     }
 
     private void InitializeMap()
@@ -46,7 +56,7 @@ public class MapGenerator : MonoBehaviour
         mapData.map = new bool[width, height];
 
         //create a seeded prng
-        System.Random prng = new System.Random(seed);
+        System.Random prng = new System.Random(seed.GetHashCode());
 
         //fill the map with walls randomly
         for (int x = 0; x < width; x++)
@@ -87,7 +97,5 @@ public class MapGenerator : MonoBehaviour
         {
             simulationSteps = 0;
         }
-    }
-
-    
+    } 
 }
