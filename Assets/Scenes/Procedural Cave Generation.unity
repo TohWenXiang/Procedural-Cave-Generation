@@ -293,10 +293,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 40
   height: 25
-  seed: 52
+  seed: 636973257134733525
   mapData: {fileID: 11400000, guid: 1d6ad783aacffd64b93269577aa6b87a, type: 2}
   fillPercentage: 33.4
   simulationSteps: 2
   creationLimit: 4
   destructionLimit: 2
+  generateRandomSeed: 1
   autoUpdate: 1

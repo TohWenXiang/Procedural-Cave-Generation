@@ -16,11 +16,6 @@ public class MapGeneratorEditor : Editor
             //check if auto update is enabled
             if (mapGen.autoUpdate == true)
             {
-                //if seed is to be randomized
-                if (mapGen.generateRandomSeed)
-                {
-                    mapGen.GenerateRandomSeed();
-                }
                 //generate Map again
                 mapGen.GenerateMap();
             }

@@ -39,16 +39,14 @@ public class MapGenerator : MonoBehaviour
         CellularAutomata.GenerateMapData(mapData, simulationSteps, creationLimit, destructionLimit);
     }
 
-    public void GenerateRandomSeed()
+    private void InitializeMap()
     {
+        //randomize seed upon request
         if (generateRandomSeed)
         {
             seed = DateTime.Now.Ticks.ToString();
         }
-    }
 
-    private void InitializeMap()
-    {
         //initialize mapData with new data
         mapData.width = width;
         mapData.height = height;
