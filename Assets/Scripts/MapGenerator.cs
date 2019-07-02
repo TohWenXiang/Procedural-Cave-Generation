@@ -12,7 +12,6 @@ public class MapGenerator : MonoBehaviour
     public int width;
     public int height;
     public string seed;
-    public MapData mapData;
 
     //initialization of the map
     [Header("Map Initialization")]
@@ -31,12 +30,21 @@ public class MapGenerator : MonoBehaviour
     //optional stuff
     [Header("Map Generator Options")]
     public bool generateRandomSeed;
-    public bool autoUpdate;        
+    public bool autoUpdate;
+
+    private Map generatedMap;
+    public Map GeneratedMap
+    {
+        get
+        {
+            return generatedMap;
+        }
+    }
 
     public void GenerateMap()
     {
         InitializeMap();
-        CellularAutomata.GenerateMapData(mapData, simulationSteps, creationLimit, destructionLimit);
+        CellularAutomata.GenerateMapData(generatedMap, simulationSteps, creationLimit, destructionLimit);
     }
 
     private void InitializeMap()
@@ -47,11 +55,8 @@ public class MapGenerator : MonoBehaviour
             seed = DateTime.Now.Ticks.ToString();
         }
 
-        //initialize mapData with new data
-        mapData.width = width;
-        mapData.height = height;
-        mapData.seed = seed;
-        mapData.map = new bool[width, height];
+        //initialize map with new data
+        generatedMap = new Map(new Vector2Int(width, height), seed);
 
         //create a seeded prng
         System.Random prng = new System.Random(seed.GetHashCode());
@@ -64,17 +69,17 @@ public class MapGenerator : MonoBehaviour
                 //set all cells at the map's edges as wall
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1)
                 {
-                    mapData.map[x, y] = true;
+                    generatedMap.Grid[x, y] = true;
                 }
                 else
                 {
                     if (prng.Next(0, 100) <= fillPercentage)
                     {
-                        mapData.map[x, y] = true;
+                        generatedMap.Grid[x, y] = true;
                     }
                     else
                     {
-                        mapData.map[x, y] = false;
+                        generatedMap.Grid[x, y] = false;
                     }
                 }
             }

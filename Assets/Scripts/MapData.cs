@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Map Data", menuName = "Procedural Cave Generation/Map Data")]
-public class MapData : ScriptableObject
+public class MapData
 {
-    public int width;
-    public int height;
+    public Vector2Int size;
     public string seed;
-    public bool[,] map;
+    public bool[,] grid;
 }
