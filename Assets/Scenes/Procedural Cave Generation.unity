@@ -144,7 +144,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444795203}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321ee7b2030f5c74cabcecd6044cb1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapData: {fileID: 11400000, guid: 1d6ad783aacffd64b93269577aa6b87a, type: 2}
   targetedCellIndex: {x: 10, y: 10}
 --- !u!1 &963194225
 GameObject:
@@ -293,11 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 40
   height: 25
-  seed: 636973257134733525
-  mapData: {fileID: 11400000, guid: 1d6ad783aacffd64b93269577aa6b87a, type: 2}
+  seed: 636978443914326046
   fillPercentage: 33.4
   simulationSteps: 2
   creationLimit: 4
   destructionLimit: 2
-  generateRandomSeed: 1
+  generateRandomSeed: 0
   autoUpdate: 1

@@ -12,7 +12,7 @@ public static class CellularAutomata
         }
     }
 
-    private static bool[,] SimulationStep(Map theMap, int creationLimit, int destructionLimit)
+    private static void SimulationStep(Map theMap, int creationLimit, int destructionLimit)
     {
         //create a new map data array so that original data remains clean
         bool[,] updatedMap = new bool[theMap.Size.x, theMap.Size.y];
