@@ -54,7 +54,6 @@ public class Map
             }
         }
 
-
         return neighbouringWallCount;
     }
 

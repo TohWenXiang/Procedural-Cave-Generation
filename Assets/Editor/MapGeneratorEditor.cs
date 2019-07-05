@@ -24,6 +24,7 @@ public class MapGeneratorEditor : Editor
         //if generate cave map button is pressed
         if (GUILayout.Button("Generate Cave Map"))
         {
+            mapGen.GenerateRandomSeed();
             //generate Map
             mapGen.GenerateMap();
         }

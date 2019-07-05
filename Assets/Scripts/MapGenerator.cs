@@ -49,11 +49,7 @@ public class MapGenerator : MonoBehaviour
 
     private void InitializeMap()
     {
-        //randomize seed upon request
-        if (generateRandomSeed)
-        {
-            seed = DateTime.Now.Ticks.ToString();
-        }
+        
 
         //initialize map with new data
         generatedMap = new Map(new Vector2Int(width, height), seed);
@@ -83,6 +79,15 @@ public class MapGenerator : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void GenerateRandomSeed()
+    {
+        //randomize seed upon request
+        if (generateRandomSeed)
+        {
+            seed = DateTime.Now.Ticks.ToString();
         }
     }
 

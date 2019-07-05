@@ -292,10 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 40
   height: 25
-  seed: 636978443914326046
-  fillPercentage: 33.4
+  seed: 636979308115368454
+  fillPercentage: 37.5
   simulationSteps: 2
   creationLimit: 4
   destructionLimit: 2
-  generateRandomSeed: 0
+  generateRandomSeed: 1
   autoUpdate: 1
