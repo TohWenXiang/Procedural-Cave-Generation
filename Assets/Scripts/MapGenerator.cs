@@ -49,7 +49,7 @@ public class MapGenerator : MonoBehaviour
 
     private void InitializeMap()
     {
-        
+
 
         //initialize map with new data
         generatedMap = new Map(new Vector2Int(width, height), seed);
@@ -105,5 +105,32 @@ public class MapGenerator : MonoBehaviour
         {
             simulationSteps = 0;
         }
-    } 
+    }
+
+    public void OnDrawGizmos()
+    {
+        if (generatedMap != null)
+        {
+            Vector3 offset = new Vector3(-(generatedMap.Size.x / 2) + 0.5f, 0, -(generatedMap.Size.y / 2) + 0.5f);
+
+            for (int x = 0; x < generatedMap.Size.x; x++)
+            {
+                for (int y = 0; y < generatedMap.Size.y; y++)
+                {
+                    if (generatedMap.Grid[x, y] == true)
+                    {
+                        Gizmos.color = Color.black;
+                    }
+                    else
+                    {
+                        Gizmos.color = Color.white;
+                    }
+
+                    Vector3 pos = new Vector3(x, 0, y) + offset;
+
+                    Gizmos.DrawCube(pos, Vector3.one);
+                }
+            }
+        }
+    }
 }
