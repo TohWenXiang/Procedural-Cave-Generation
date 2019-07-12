@@ -82,7 +82,7 @@ public class Map
                 //if cells are out of bounds, wrap around the index
                 else
                 {
-                    neighbouringCells.Add(new Vector2Int(Utility.mod(neighbouringCellIndex.x, mapData.size.x), Utility.mod(neighbouringCellIndex.y, mapData.size.y)));
+                    neighbouringCells.Add(Utility.WrapAroundIndex(neighbouringCellIndex, mapData.size));
                 }
             }
         }
