@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321ee7b2030f5c74cabcecd6044cb1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapDisplay: {fileID: 0}
   targetedCellIndex: {x: 10, y: 10}
 --- !u!114 &444795206
 MonoBehaviour:
@@ -270,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077121985}
   - component: {fileID: 1077121986}
+  - component: {fileID: 1077121987}
   m_Layer: 0
   m_Name: Map Generator
   m_TagString: Untagged
@@ -305,10 +307,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 40
   height: 25
-  seed: 636983611560686813
+  seed: 636985318724628676
   fillPercentage: 37.5
   simulationSteps: 2
   creationLimit: 4
   destructionLimit: 2
   generateRandomSeed: 1
   autoUpdate: 1
+--- !u!114 &1077121987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077121984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795f1a6a86be6044eb583021fe20d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
