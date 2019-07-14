@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Square : MonoBehaviour
+public class Square
 {
     public ControlNode topLeft;
     public ControlNode topRight;
@@ -16,6 +16,14 @@ public class Square : MonoBehaviour
 
     public Square(ControlNode _topLeft, ControlNode _topRight, ControlNode _bottomRight, ControlNode _bottomLeft)
     {
+        topLeft = _topLeft;
+        topRight = _topRight;
+        bottomLeft = _bottomLeft;
+        bottomRight = _bottomRight;
 
+        centerTop = topLeft.rightNode;
+        centerRight = bottomRight.aboveNode;
+        centerBottom = bottomLeft.rightNode;
+        centerLeft = bottomLeft.aboveNode;
     }
 }

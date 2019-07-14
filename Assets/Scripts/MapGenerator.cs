@@ -41,10 +41,20 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    MeshGenerator meshGen;
+    public float squareSize;
+
     public void GenerateMap()
     {
         InitializeMap();
         CellularAutomata.GenerateMapData(generatedMap, simulationSteps, creationLimit, destructionLimit);
+
+        meshGen = GetComponent<MeshGenerator>();
+        if (meshGen == null)
+        {
+            Debug.Log("Sdsd");
+        }
+        meshGen.GenerateMesh(generatedMap.Grid, squareSize);
     }
 
     private void InitializeMap()
@@ -107,30 +117,30 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    public void OnDrawGizmos()
-    {
-        if (generatedMap != null)
-        {
-            Vector3 offset = new Vector3(-(generatedMap.Size.x / 2) + 0.5f, 0, -(generatedMap.Size.y / 2) + 0.5f);
+    //public void OnDrawGizmos()
+    //{
+    //    if (generatedMap != null)
+    //    {
+    //        Vector3 offset = new Vector3(-(generatedMap.Size.x / 2) + 0.5f, 0, -(generatedMap.Size.y / 2) + 0.5f);
 
-            for (int x = 0; x < generatedMap.Size.x; x++)
-            {
-                for (int y = 0; y < generatedMap.Size.y; y++)
-                {
-                    if (generatedMap.Grid[x, y] == true)
-                    {
-                        Gizmos.color = Color.black;
-                    }
-                    else
-                    {
-                        Gizmos.color = Color.white;
-                    }
+    //        for (int x = 0; x < generatedMap.Size.x; x++)
+    //        {
+    //            for (int y = 0; y < generatedMap.Size.y; y++)
+    //            {
+    //                if (generatedMap.Grid[x, y] == true)
+    //                {
+    //                    Gizmos.color = Color.black;
+    //                }
+    //                else
+    //                {
+    //                    Gizmos.color = Color.white;
+    //                }
 
-                    Vector3 pos = new Vector3(x, 0, y) + offset;
+    //                Vector3 pos = new Vector3(x, 0, y) + offset;
 
-                    Gizmos.DrawCube(pos, Vector3.one);
-                }
-            }
-        }
-    }
+    //                Gizmos.DrawCube(pos, Vector3.one);
+    //            }
+    //        }
+    //    }
+    //}
 }
