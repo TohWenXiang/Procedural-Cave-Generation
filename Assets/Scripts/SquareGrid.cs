@@ -20,8 +20,13 @@ public class SquareGrid
         {
             for (int y = 0; y < nodeCountY; y++)
             {
-                //calculate the position of our first control node
-                Vector3 pos = new Vector3((-mapWidth * 0.5f) + (x * squareSize) + (squareSize * 0.5f), 0, (-mapHeight * 0.5f) + (y * squareSize) + (squareSize * 0.5f));
+                //offset position so that center of the map resides at (0, 0)
+                Vector3 offset = new Vector3((-mapWidth * 0.5f) + (squareSize * 0.5f), 0, (-mapHeight * 0.5f) + (squareSize * 0.5f));
+
+                //calculate the position of the current control node
+                Vector3 pos = new Vector3(x * squareSize, 0, y * squareSize) + offset;
+
+                //create a new control node at point at [x, y] with its position, whether it's a wall and the size of the square
                 controlNodes[x, y] = new ControlNode(pos, map[x, y], squareSize);
             }
         }

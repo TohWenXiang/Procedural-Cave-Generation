@@ -41,6 +41,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    [Header("MeshGenerator Option")]
     MeshGenerator meshGen;
     public float squareSize;
 
